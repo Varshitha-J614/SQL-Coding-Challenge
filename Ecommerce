@@ -1,13 +1,13 @@
 CREATE DATABASE Ecommerce;
 USE Ecommerce;
--- Customers Table
+-- Customer Table
 CREATE TABLE Customers (
     customerID INT PRIMARY KEY,
     name VARCHAR(100),
     email VARCHAR(100) UNIQUE,
     password VARCHAR(255)
 );
--- Products Table
+-- Product Table
 CREATE TABLE Products (
     productID INT PRIMARY KEY,
     name VARCHAR(100),
@@ -24,7 +24,7 @@ CREATE TABLE Cart (
     FOREIGN KEY (customerID) REFERENCES Customers(customerID),
     FOREIGN KEY (productID) REFERENCES Products(productID)
 );
--- Orders Table
+-- Order Table
 CREATE TABLE Orders (
     orderID INT PRIMARY KEY,
     customerID INT,
@@ -33,7 +33,7 @@ CREATE TABLE Orders (
     shippingAddress TEXT,
     FOREIGN KEY (customerID) REFERENCES Customers(customerID)
 );
--- Order Items Table
+-- OrderItem Table
 CREATE TABLE Order_Items (
     orderItemID INT PRIMARY KEY,
     orderID INT,
